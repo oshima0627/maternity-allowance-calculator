@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { APP_CONFIG, OGP_CONFIG } from './utils/constants'
 import { Analytics } from '@vercel/analytics/next'
-import SiteNavigation from './components/SiteNavigation'
+import HeaderNavigation from './components/HeaderNavigation'
 
 export const metadata: Metadata = {
   title: OGP_CONFIG.title,
@@ -114,14 +114,17 @@ export default function RootLayout({
       </head>
       <body>
         <div className="app">
-          <SiteNavigation variant="header" currentSite="maternity" />
-          
           <header>
             <div className="container">
               <h1>{APP_CONFIG.title}</h1>
               <p className="subtitle">
                 妊娠中・産休予定の方向け 手取り額シミュレーター
               </p>
+              <HeaderNavigation 
+                targetSite="childcare"
+                targetUrl="https://childcare-calculator.vercel.app"
+                targetLabel="育児休業給付金シミュレーター"
+              />
             </div>
           </header>
 
