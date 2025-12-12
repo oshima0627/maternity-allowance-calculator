@@ -10,6 +10,7 @@ import InputForm from './components/InputForm'
 import PeriodSummary from './components/PeriodSummary'
 import BenefitCalculation from './components/BenefitCalculation'
 import IncomeComparison from './components/IncomeComparison'
+import SiteNavigation from './components/SiteNavigation'
 import FAQ from './components/FAQ'
 import { calculateMaternity } from './utils/maternityCalculator'
 import type { MaternityInput, MaternityResult } from './types'
@@ -91,6 +92,8 @@ export default function HomePage() {
             monthlyBenefitEquivalent={result.monthlyEquivalent}
             maintenanceRate={result.maintenanceRate}
           />
+
+          <SiteNavigation variant="inline" currentSite="maternity" />
         </div>
       )}
 

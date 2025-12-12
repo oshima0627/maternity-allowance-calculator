@@ -1,0 +1,317 @@
+/**
+ * サイト間遷移ナビゲーションのスタイル
+ * 高いユーザビリティとアクセシビリティを重視
+ */
+
+/* ===== ヘッダー版ナビゲーション ===== */
+.site-navigation--header {
+  background: linear-gradient(135deg, #e91e63 0%, #ad1457 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 0;
+}
+
+.site-navigation__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.site-navigation__current {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.site-navigation__label {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+.site-navigation__title {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.site-navigation__divider {
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.site-navigation__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-navigation__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.site-navigation__link:hover::before {
+  left: 100%;
+}
+
+.site-navigation__link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.site-navigation__link:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.site-navigation__icon {
+  margin-top: 2px;
+  opacity: 0.8;
+}
+
+/* ===== インライン版ナビゲーション ===== */
+.site-navigation--inline {
+  margin: 32px 0;
+}
+
+.site-navigation__card {
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+  border: 1px solid #e1e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-navigation__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e91e63, #2196f3);
+}
+
+.site-navigation__card-header {
+  margin-bottom: 20px;
+}
+
+.site-navigation__card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1565c0;
+  margin: 0 0 8px 0;
+}
+
+.site-navigation__card-icon {
+  color: #e91e63;
+}
+
+.site-navigation__card-desc {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.site-navigation__card-content {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.site-navigation__benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e1e8f0;
+}
+
+.site-navigation__benefit-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.site-navigation__benefit-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1565c0;
+}
+
+.site-navigation__card-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-navigation__card-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.site-navigation__card-button:hover::before {
+  left: 100%;
+}
+
+.site-navigation__card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3);
+}
+
+.site-navigation__card-button:focus {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+.site-navigation__card-button:active {
+  transform: translateY(0);
+}
+
+/* ===== レスポンシブデザイン ===== */
+@media (max-width: 768px) {
+  .site-navigation__container {
+    padding: 0 16px;
+    gap: 12px;
+  }
+  
+  .site-navigation__title {
+    font-size: 13px;
+  }
+  
+  .site-navigation__label {
+    font-size: 11px;
+  }
+  
+  .site-navigation__link {
+    padding: 6px 12px;
+  }
+  
+  .site-navigation__card {
+    padding: 20px;
+    margin: 24px 0;
+  }
+  
+  .site-navigation__card-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .site-navigation__benefit-item {
+    padding: 12px;
+  }
+  
+  .site-navigation__card-button {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-navigation__container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 12px;
+  }
+  
+  .site-navigation__divider {
+    transform: rotate(90deg);
+  }
+  
+  .site-navigation__card {
+    padding: 16px;
+  }
+  
+  .site-navigation__card-title {
+    font-size: 16px;
+  }
+}
+
+/* ===== アクセシビリティ強化 ===== */
+@media (prefers-reduced-motion: reduce) {
+  .site-navigation__link,
+  .site-navigation__card-button,
+  .site-navigation__link::before,
+  .site-navigation__card-button::before {
+    transition: none;
+  }
+  
+  .site-navigation__link:hover,
+  .site-navigation__card-button:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .site-navigation__link {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .site-navigation__card {
+    border: 2px solid #1565c0;
+  }
+  
+  .site-navigation__benefit-item {
+    border: 2px solid #e1e8f0;
+  }
+}
+
+/* ===== フォーカス表示の強化 ===== */
+.site-navigation__link:focus-visible,
+.site-navigation__card-button:focus-visible {
+  outline: 3px solid #ff6ec7;
+  outline-offset: 2px;
+}

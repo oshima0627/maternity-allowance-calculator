@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { APP_CONFIG, OGP_CONFIG } from './utils/constants'
 import { Analytics } from '@vercel/analytics/next'
+import SiteNavigation from './components/SiteNavigation'
 
 export const metadata: Metadata = {
   title: OGP_CONFIG.title,
@@ -113,6 +114,8 @@ export default function RootLayout({
       </head>
       <body>
         <div className="app">
+          <SiteNavigation variant="header" currentSite="maternity" />
+          
           <header>
             <div className="container">
               <h1>{APP_CONFIG.title}</h1>
