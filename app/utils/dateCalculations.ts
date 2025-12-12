@@ -3,17 +3,19 @@ import type { Period } from '../types';
 
 /**
  * 産前期間を計算
+ * 産前休業は出産予定日を含む期間
  */
 export function calculatePrenatalPeriod(dueDate: Date, isMultiple: boolean): Period {
   const prenatalDays = isMultiple 
     ? MATERNITY_CONSTANTS.PRENATAL_DAYS_MULTIPLE 
     : MATERNITY_CONSTANTS.PRENATAL_DAYS_SINGLE;
   
+  // 産前休業開始日 = 出産予定日から産前日数を引いた日
   const start = new Date(dueDate);
-  start.setDate(start.getDate() - prenatalDays);
+  start.setDate(start.getDate() - prenatalDays + 1);
   
+  // 産前休業終了日 = 出産予定日（含む）
   const end = new Date(dueDate);
-  end.setDate(end.getDate() - 1);
   
   return {
     start,
@@ -24,11 +26,14 @@ export function calculatePrenatalPeriod(dueDate: Date, isMultiple: boolean): Per
 
 /**
  * 産後期間を計算
+ * 産後休業は出産日の翌日から56日間
  */
 export function calculatePostnatalPeriod(dueDate: Date): Period {
+  // 産後休業開始日 = 出産日の翌日
   const start = new Date(dueDate);
   start.setDate(start.getDate() + 1);
   
+  // 産後休業終了日 = 出産日 + 56日
   const end = new Date(dueDate);
   end.setDate(end.getDate() + MATERNITY_CONSTANTS.POSTNATAL_DAYS);
   
