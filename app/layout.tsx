@@ -117,7 +117,7 @@ export default function RootLayout({
             <div className="container">
               <h1>{APP_CONFIG.title}</h1>
               <p className="subtitle">
-                妊娠中・育休予定の方向け 手取り額シミュレーター
+                妊娠中・産休予定の方向け 手取り額シミュレーター
               </p>
             </div>
           </header>
