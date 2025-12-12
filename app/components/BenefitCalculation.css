@@ -1,0 +1,145 @@
+.benefit-calculation {
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--color-border-light);
+}
+
+.benefit-calculation__title {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-lg) 0;
+  text-align: center;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-sm);
+}
+
+.benefit-calculation__details {
+  margin-bottom: 20px;
+}
+
+.benefit-calculation__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+
+.benefit-calculation__row:last-child {
+  border-bottom: none;
+}
+
+.benefit-calculation__label {
+  font-size: 16px;
+  color: #555;
+}
+
+.benefit-calculation__value {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.benefit-calculation__value--highlight {
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+}
+
+.benefit-calculation__note {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.benefit-calculation__separator {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.benefit-calculation__separator-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+}
+
+.benefit-calculation__separator-text {
+  margin: 0 16px;
+  font-size: 14px;
+  color: #666;
+  font-weight: bold;
+}
+
+.benefit-calculation__total {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.benefit-calculation__total-value {
+  font-size: var(--font-size-2xl);
+  font-weight: bold;
+  color: var(--color-primary-dark);
+  display: block;
+}
+
+.benefit-calculation__tax-info {
+  text-align: center;
+}
+
+.benefit-calculation__tax-badge {
+  display: inline-block;
+  background: #4caf50;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.benefit-calculation__tax-description {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .benefit-calculation {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .benefit-calculation__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .benefit-calculation__note {
+    position: static;
+    margin-top: 0;
+  }
+  
+  .benefit-calculation__total-value {
+    font-size: 28px;
+  }
+  
+  .benefit-calculation__separator-text {
+    margin: 0 12px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,148 @@
+.period-summary {
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--color-border-light);
+}
+
+.period-summary__title {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-lg) 0;
+  text-align: center;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--spacing-sm);
+}
+
+.period-summary__periods {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.period-summary__period {
+  flex: 1;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  text-align: center;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.period-summary__period--prenatal {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+  border-color: var(--color-secondary);
+}
+
+.period-summary__period--postnatal {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+  border-color: var(--color-primary);
+}
+
+.period-summary__period-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.period-summary__period-label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.period-summary__multiple-badge {
+  background: #ff9800;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.period-summary__period-dates {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.period-summary__period-days {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.period-summary__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+  border: 2px solid var(--color-border-light);
+}
+
+.period-summary__total-label {
+  font-weight: bold;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.period-summary__total-value {
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.period-summary__note {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #17a2b8;
+}
+
+.period-summary__note p {
+  margin: 0;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .period-summary {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .period-summary__periods {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .period-summary__period {
+    padding: 12px;
+  }
+  
+  .period-summary__period-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .period-summary__total {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .period-summary__total-value {
+    font-size: 20px;
+  }
+}
