@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 8px;
 }
 
 .site-navigation__current {
@@ -53,13 +53,14 @@
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  padding: 8px 16px;
+  padding: 8px 12px;
   color: white;
   text-decoration: none;
   transition: all 0.2s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  min-width: 80px;
 }
 
 .site-navigation__link::before {

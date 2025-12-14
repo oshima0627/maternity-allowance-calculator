@@ -2,43 +2,101 @@
 
 /**
  * ヘッダーナビゲーション
- * サイト間遷移ボタン
+ * サイト間遷移ボタン（3つのシミュレーター対応）
  */
 
+import { useCallback, useMemo } from 'react'
+
 interface HeaderNavigationProps {
-  targetSite: 'childcare' | 'maternity'
-  targetUrl: string
-  targetLabel: string
+  currentSite: 'childcare' | 'maternity' | 'sickness'
 }
 
 export default function HeaderNavigation({
-  targetSite,
-  targetUrl,
-  targetLabel
+  currentSite
 }: HeaderNavigationProps) {
-  const handleNavigation = () => {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'site_navigation', {
-        'event_category': 'Navigation',
-        'event_label': `maternity_to_${targetSite}`
-      })
+  
+  // 静的な情報でHydrationエラーを回避
+  const navigationConfig = useMemo(() => {
+    switch (currentSite) {
+      case 'childcare':
+        return [
+          {
+            site: 'maternity' as const,
+            url: 'https://maternity-allowance-calculator.nexeed-web.com',
+            label: '出産手当金'
+          },
+          {
+            site: 'sickness' as const,
+            url: 'https://sickness-benefit-calculator.nexeed-web.com',
+            label: '傷病手当金'
+          }
+        ]
+      case 'maternity':
+        return [
+          {
+            site: 'childcare' as const,
+            url: 'https://childcare-calculator.nexeed-web.com',
+            label: '育児休業給付金'
+          },
+          {
+            site: 'sickness' as const,
+            url: 'https://sickness-benefit-calculator.nexeed-web.com',
+            label: '傷病手当金'
+          }
+        ]
+      case 'sickness':
+        return [
+          {
+            site: 'maternity' as const,
+            url: 'https://maternity-allowance-calculator.nexeed-web.com',
+            label: '出産手当金'
+          },
+          {
+            site: 'childcare' as const,
+            url: 'https://childcare-calculator.nexeed-web.com',
+            label: '育児休業給付金'
+          }
+        ]
+      default:
+        return []
     }
-    window.open(targetUrl, '_blank', 'noopener,noreferrer')
-  }
+  }, [currentSite])
+
+  const handleNavigation = useCallback((url: string, targetSite: string) => {
+    // Google Analytics tracking
+    try {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'site_navigation', {
+          'event_category': 'Navigation',
+          'event_label': `${currentSite}_to_${targetSite}`
+        })
+      }
+    } catch (error) {
+      console.log('Analytics tracking failed:', error)
+    }
+    
+    // Navigate to target URL
+    if (typeof window !== 'undefined') {
+      window.open(url, '_blank', 'noopener,noreferrer')
+    }
+  }, [currentSite])
 
   return (
     <div className="header-nav">
-      <button 
-        onClick={handleNavigation}
-        className="header-nav-button"
-        type="button"
-        aria-label={`${targetLabel}に移動`}
-      >
-        {targetLabel}
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </button>
+      {navigationConfig.map((target) => (
+        <button 
+          key={target.site}
+          onClick={() => handleNavigation(target.url, target.site)}
+          className="header-nav-button"
+          type="button"
+          aria-label={`${target.label}シミュレーターに移動`}
+        >
+          {target.label}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      ))}
     </div>
   )
 }

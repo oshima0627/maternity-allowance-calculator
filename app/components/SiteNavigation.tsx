@@ -9,14 +9,14 @@ import './SiteNavigation.css';
 
 interface SiteNavigationProps {
   variant?: 'header' | 'inline';
-  currentSite?: 'maternity' | 'childcare';
+  currentSite?: 'maternity' | 'childcare' | 'sickness';
 }
 
 export default function SiteNavigation({ 
   variant = 'header',
   currentSite = 'maternity' 
 }: SiteNavigationProps) {
-  const handleNavigation = (targetSite: 'maternity' | 'childcare') => {
+  const handleNavigation = (targetSite: 'maternity' | 'childcare' | 'sickness') => {
     // Google Analytics追跡（実装時に追加）
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'site_navigation', {
@@ -28,7 +28,8 @@ export default function SiteNavigation({
     // 遷移先URL
     const urls = {
       maternity: 'https://maternity-allowance-calculator.nexeed-web.com',
-      childcare: 'https://childcare-calculator.vercel.app' // 育児休業給付金シミュレーターのURL
+      childcare: 'https://childcare-calculator.nexeed-web.com', // 育児休業給付金シミュレーターのURL
+      sickness: 'https://sickness-benefit-calculator.nexeed-web.com'
     };
 
     window.open(urls[targetSite], '_blank', 'noopener,noreferrer');
@@ -43,23 +44,22 @@ export default function SiteNavigation({
             <span className="site-navigation__title">出産手当金</span>
           </div>
           
-          <div className="site-navigation__divider">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          
           <button 
             onClick={() => handleNavigation('childcare')}
             className="site-navigation__link"
             type="button"
             aria-label="育児休業給付金シミュレーターに移動"
           >
-            <span className="site-navigation__label">次のステップ</span>
             <span className="site-navigation__title">育児休業給付金</span>
-            <svg className="site-navigation__icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          </button>
+          
+          <button 
+            onClick={() => handleNavigation('sickness')}
+            className="site-navigation__link"
+            type="button"
+            aria-label="傷病手当金シミュレーターに移動"
+          >
+            <span className="site-navigation__title">傷病手当金</span>
           </button>
         </div>
       </nav>

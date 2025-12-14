@@ -483,7 +483,9 @@ header .subtitle {
 .header-nav {
   display: flex;
   justify-content: center;
+  gap: var(--spacing-sm);
   margin-top: var(--spacing-md);
+  flex-wrap: wrap;
 }
 
 .header-nav-button {

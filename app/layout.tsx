@@ -120,11 +120,7 @@ export default function RootLayout({
               <p className="subtitle">
                 妊娠中・産休予定の方向け 手取り額シミュレーター
               </p>
-              <HeaderNavigation 
-                targetSite="childcare"
-                targetUrl="https://childcare-calculator.vercel.app"
-                targetLabel="育児休業給付金シミュレーター"
-              />
+              <HeaderNavigation currentSite="maternity" />
             </div>
           </header>
 
