@@ -1,0 +1,92 @@
+.affiliate-banner {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  margin: var(--spacing-lg) auto;
+  border: 1px solid var(--color-border-light);
+  max-width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.affiliate-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.affiliate-banner__label {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 2px 8px;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  z-index: 1;
+}
+
+.affiliate-banner__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 280px;
+}
+
+.affiliate-banner__content a {
+  display: inline-block;
+  line-height: 0;
+  transition: opacity 0.2s ease;
+}
+
+.affiliate-banner__content a:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.affiliate-banner__content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* トラッキング画像を非表示 */
+.affiliate-banner__content img[width="1"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+/* モバイル対応 - 336pxを超える場合は縮小表示 */
+@media (max-width: 400px) {
+  .affiliate-banner {
+    padding: var(--spacing-md);
+  }
+
+  .affiliate-banner__content a img:not([width="1"]) {
+    width: 100%;
+    height: auto;
+    max-width: 336px;
+  }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .affiliate-banner {
+    margin: var(--spacing-md) auto;
+  }
+}
+
+/* アクセシビリティ - アニメーション減少設定 */
+@media (prefers-reduced-motion: reduce) {
+  .affiliate-banner,
+  .affiliate-banner__content a {
+    transition: none;
+  }
+
+  .affiliate-banner:hover {
+    transform: none;
+  }
+}

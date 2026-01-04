@@ -12,6 +12,7 @@ import BenefitCalculation from './components/BenefitCalculation'
 import IncomeComparison from './components/IncomeComparison'
 import SiteNavigation from './components/SiteNavigation'
 import FAQ from './components/FAQ'
+import AffiliateBanner from './components/AffiliateBanner'
 import { calculateMaternity } from './utils/maternityCalculator'
 import type { MaternityInput, MaternityResult } from './types'
 
@@ -94,6 +95,8 @@ export default function HomePage() {
           />
 
           <SiteNavigation variant="inline" currentSite="maternity" />
+
+          <AffiliateBanner />
         </div>
       )}
 
@@ -134,6 +137,8 @@ export default function HomePage() {
       )}
 
       <FAQ />
+
+      <AffiliateBanner />
 
       <style jsx>{`
         .main-content {
