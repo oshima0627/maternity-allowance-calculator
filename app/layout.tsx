@@ -156,7 +156,7 @@ export default function RootLayout({
               
               <div className="footer-bottom">
                 <p>
-                  &copy; 2025 出産手当金シミュレーター. 
+                  &copy; {new Date().getFullYear()} Nexeed Lab. All rights reserved.
                   データ出典: 厚生労働省
                 </p>
               </div>
