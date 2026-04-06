@@ -22,12 +22,12 @@ export default function HeaderNavigation({
         return [
           {
             site: 'maternity' as const,
-            url: 'https://maternity-allowance-calculator.nexeed-web.com',
+            url: 'https://maternity-allowance-calculator.nexeed-lab.com',
             label: '出産手当金'
           },
           {
             site: 'sickness' as const,
-            url: 'https://sickness-benefit-calculator.nexeed-web.com',
+            url: 'https://sickness-benefit-calculator.nexeed-lab.com',
             label: '傷病手当金'
           }
         ]
@@ -35,12 +35,12 @@ export default function HeaderNavigation({
         return [
           {
             site: 'childcare' as const,
-            url: 'https://childcare-calculator.nexeed-web.com',
+            url: 'https://childcare-calculator.nexeed-lab.com',
             label: '育児休業給付金'
           },
           {
             site: 'sickness' as const,
-            url: 'https://sickness-benefit-calculator.nexeed-web.com',
+            url: 'https://sickness-benefit-calculator.nexeed-lab.com',
             label: '傷病手当金'
           }
         ]
@@ -48,12 +48,12 @@ export default function HeaderNavigation({
         return [
           {
             site: 'maternity' as const,
-            url: 'https://maternity-allowance-calculator.nexeed-web.com',
+            url: 'https://maternity-allowance-calculator.nexeed-lab.com',
             label: '出産手当金'
           },
           {
             site: 'childcare' as const,
-            url: 'https://childcare-calculator.nexeed-web.com',
+            url: 'https://childcare-calculator.nexeed-lab.com',
             label: '育児休業給付金'
           }
         ]

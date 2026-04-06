@@ -27,9 +27,9 @@ export default function SiteNavigation({
 
     // 遷移先URL
     const urls = {
-      maternity: 'https://maternity-allowance-calculator.nexeed-web.com',
-      childcare: 'https://childcare-calculator.nexeed-web.com', // 育児休業給付金シミュレーターのURL
-      sickness: 'https://sickness-benefit-calculator.nexeed-web.com'
+      maternity: 'https://maternity-allowance-calculator.nexeed-lab.com',
+      childcare: 'https://childcare-calculator.nexeed-lab.com', // 育児休業給付金シミュレーターのURL
+      sickness: 'https://sickness-benefit-calculator.nexeed-lab.com'
     };
 
     window.open(urls[targetSite], '_blank', 'noopener,noreferrer');
