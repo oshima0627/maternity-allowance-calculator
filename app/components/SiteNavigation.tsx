@@ -18,9 +18,9 @@ export default function SiteNavigation({
   const handleNavigation = (targetSite: 'maternity' | 'childcare' | 'sickness') => {
     // 遷移先URL
     const urls = {
-      maternity: 'https://maternity-allowance-calculator.nexeed-lab.com',
-      childcare: 'https://childcare-calculator.nexeed-lab.com', // 育児休業給付金シミュレーターのURL
-      sickness: 'https://sickness-benefit-calculator.nexeed-lab.com'
+      maternity: 'https://maternity.nexeed-lab.com',
+      childcare: 'https://childcare.nexeed-lab.com', // 育児休業給付金シミュレーターのURL
+      sickness: 'https://sickness.nexeed-lab.com'
     };
 
     window.open(urls[targetSite], '_blank', 'noopener,noreferrer');
