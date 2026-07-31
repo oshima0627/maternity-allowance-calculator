@@ -24,3 +24,12 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## デプロイ（Cloudflare）
+
+静的エクスポート（`out/`）を Cloudflare で配信します。手順は [CLOUDFLARE.md](./CLOUDFLARE.md) を参照してください。
+
+```bash
+npm run preview   # ローカルで本番と同じ配信を確認
+npm run deploy    # ビルドして Cloudflare にデプロイ
+```

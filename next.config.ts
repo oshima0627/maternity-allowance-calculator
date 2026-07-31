@@ -1,46 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Cloudflare（Workers 静的アセット / Pages）へ配信するため静的HTMLを書き出す
+  // ビルド成果物は out/ に出力される
+  output: 'export',
+
   // パフォーマンス最適化
   poweredByHeader: false,
   compress: true,
-  
-  // CSS最適化を無効化（critters エラー回避）
-  // experimental: {
-  //   optimizeCss: true,
-  // },
-  
-  // 画像最適化（必要時）
+
+  // 静的エクスポートでは Next.js の画像最適化サーバーが使えないため無効化
   images: {
-    formats: ['image/webp', 'image/avif'],
+    unoptimized: true,
   },
-  
-  // セキュリティヘッダー
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-        ],
-      },
-    ];
-  },
+
+  // セキュリティヘッダーは静的エクスポートでは headers() が無効になるため
+  // public/_headers（Cloudflare 側で解釈される）に移動しました
 };
 
 export default nextConfig;
