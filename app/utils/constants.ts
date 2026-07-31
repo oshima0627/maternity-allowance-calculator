@@ -127,7 +127,6 @@ export const APP_CONFIG = {
   title: '出産手当金シミュレーター',
   description: '出産手当金の支給額を簡単に計算できるシミュレーターです。',
   url: process.env.NEXT_PUBLIC_APP_URL || 'https://maternity-allowance-calculator.nexeed-lab.com',
-  gaId: process.env.NEXT_PUBLIC_GA_ID || '',
 }
 
 // OGP設定

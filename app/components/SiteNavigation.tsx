@@ -14,17 +14,8 @@ interface SiteNavigationProps {
 
 export default function SiteNavigation({ 
   variant = 'header',
-  currentSite = 'maternity' 
 }: SiteNavigationProps) {
   const handleNavigation = (targetSite: 'maternity' | 'childcare' | 'sickness') => {
-    // Google Analytics追跡（実装時に追加）
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'site_navigation', {
-        'event_category': 'Navigation',
-        'event_label': `${currentSite}_to_${targetSite}`
-      });
-    }
-
     // 遷移先URL
     const urls = {
       maternity: 'https://maternity-allowance-calculator.nexeed-lab.com',
